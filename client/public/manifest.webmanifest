@@ -1,0 +1,17 @@
+{
+  "name": "Medicare Hospital Appointments",
+  "short_name": "Medicare",
+  "description": "Find doctors and manage hospital appointments.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f8fa",
+  "theme_color": "#087f8c",
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

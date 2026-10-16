@@ -1,0 +1,52 @@
+SCENARIO 8 — HOSPITAL APPOINTMENT BOOKING WEB APPLICATION
+EXPECTED OUTPUT / SCREEN FLOW
+
+1. HOME
+   CarePoint
+   Buttons: Find a doctor | Patient login
+
+2. FIND A DOCTOR (REST API)
+   Doctor list loaded from GET /api/doctors
+   Search doctor or specialty + All specialties dropdown
+   Dr. Ravi Kumar — Cardiology — MBBS, MD (Cardiology) — 12 years — 4.9 rating — ₹600
+   Dr. Priya Sharma — Neurology — MBBS, DM (Neurology) — 9 years — 4.8 rating — ₹700
+   Dr. Arun Kumar — Dermatology — MBBS, MD (Dermatology) — 8 years — 4.7 rating — ₹500
+   Dr. Meena Iyer — Pediatrics — MBBS, MD (Pediatrics) — 10 years — 4.9 rating — ₹450
+   Dr. Karthik Raj — Orthopedics — MBBS, MS (Orthopedics) — 11 years — 4.8 rating — ₹550
+   Dr. Nandhini Devi — Gynecology — MBBS, MS (Obstetrics & Gynecology) — 7 years — 4.7 rating — ₹600
+   Dr. Suresh Menon — Ophthalmology — MBBS, MS (Ophthalmology) — 14 years — 4.8 rating — ₹500
+   Dr. Aisha Rahman — Psychiatry — MBBS, MD (Psychiatry) — 6 years — 4.6 rating — ₹650
+   Dr. Vignesh Anand — ENT — MBBS, MS (ENT) — 9 years — 4.7 rating — ₹450
+   Dr. Lakshmi Narayanan — General Medicine — MBBS, MD (General Medicine) — 15 years — 4.9 rating — ₹400
+   Each card has View profile.
+
+3. DOCTOR PROFILE / AVAILABILITY
+   GET /api/doctors/:id
+   GET /api/doctors/:id/availability
+   Shows qualification, specialty, experience, rating, fee, available dates and time slots.
+   Button: Book appointment.
+
+4. LOGIN
+   Email: patient@example.com (or Patient ID P1001)
+   Password: 123456
+   Valid login returns a bearer token.
+
+5. BOOK APPOINTMENT
+   Choose doctor, date and time slot.
+   Enter patient name, email and 10-digit Indian mobile number.
+   POST /api/appointments returns appointment ID and status "Booked".
+
+6. APPOINTMENT HISTORY
+   GET /api/appointments (protected)
+   Reschedule: PATCH /api/appointments/:id
+   Cancel: DELETE /api/appointments/:id
+
+7. TOKEN / LOGOUT
+   Axios attaches Authorization: Bearer token.
+   Invalid token returns 401 and clears local token.
+   Logout calls POST /api/logout and clears session token.
+
+8. STATE MANAGEMENT
+   Redux Toolkit async actions update data/loading/error states.
+   Middleware logs appointment actions in browser developer console.
+   Doctor API results are cached in localStorage by query.
